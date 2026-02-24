@@ -1,37 +1,27 @@
-import java.util.Scanner;
+import java.util.Stack;
 
 public class UseCasePalindromeCheckerApp {
-
     public static void main(String[] args) {
+        String input = "noon";
+        Stack<Character> stack = new Stack<>();
 
-        Scanner scanner = new Scanner(System.in);
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
 
-        System.out.println("=== UC5: Case-Insensitive Palindrome Checker ===");
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-
-        // Normalize: remove spaces and convert to lowercase
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
-
-        int left = 0;
-        int right = normalized.length() - 1;
         boolean isPalindrome = true;
 
-        while (left < right) {
-            if (normalized.charAt(left) != normalized.charAt(right)) {
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
 
         if (isPalindrome) {
-            System.out.println("Result: It is a Palindrome.");
+            System.out.println("The string \"" + input + "\" is a palindrome.");
         } else {
-            System.out.println("Result: It is NOT a Palindrome.");
+            System.out.println("The string \"" + input + "\" is NOT a palindrome.");
         }
-
-        scanner.close();
     }
 }
