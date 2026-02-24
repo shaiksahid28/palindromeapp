@@ -1,4 +1,4 @@
-public class Main {
+public class UseCasePalindromeCheckerApp {
     public static void main(String[] args) {
         // UC2: Hardcoded palindrome check
         String str = "madam"; // hardcoded string
