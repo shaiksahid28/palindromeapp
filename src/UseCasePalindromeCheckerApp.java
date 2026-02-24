@@ -1,35 +1,25 @@
-import java.util.Scanner;
-
 public class UseCasePalindromeCheckerApp {
-
     public static void main(String[] args) {
+        String input = "radar";
+        char[] chars = input.toCharArray();
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("=== UC4: Two Pointer Palindrome Checker ===");
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-
-        String normalized = input.replaceAll("\\s+", ""); // remove spaces
-        int left = 0;
-        int right = normalized.length() - 1;
+        int start = 0;
+        int end = chars.length - 1;
         boolean isPalindrome = true;
 
-        while (left < right) {
-            if (normalized.charAt(left) != normalized.charAt(right)) {
+        while (start < end) {
+            if (chars[start] != chars[end]) {
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
+            start++;
+            end--;
         }
 
         if (isPalindrome) {
-            System.out.println("Result: It is a Palindrome.");
+            System.out.println("The string \"" + input + "\" is a palindrome.");
         } else {
-            System.out.println("Result: It is NOT a Palindrome.");
+            System.out.println("The string \"" + input + "\" is NOT a palindrome.");
         }
-
-        scanner.close();
     }
 }
