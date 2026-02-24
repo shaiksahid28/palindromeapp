@@ -1,13 +1,17 @@
 public class UseCasePalindromeCheckerApp {
-    public static void main(String[] args) {
-        // UC2: Hardcoded palindrome check
-        String str = "madam"; // hardcoded string
-        String reversed = new StringBuilder(str).reverse().toString();
 
-        if(str.equals(reversed)) {
-            System.out.println(str + " is a palindrome!");
-        } else {
-            System.out.println(str + " is NOT a palindrome!");
+    public static void main(String[] args) {
+        String input = "madam";
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < input.length() / 2; i++) {
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
         }
+
+        System.out.println("Input text: " + input);
+        System.out.println("Is it a Palindrome? : " + isPalindrome);
     }
 }
